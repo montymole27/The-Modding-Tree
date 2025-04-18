@@ -30,6 +30,11 @@ addLayer("p", {
             title: "UPGRADE I",
             description: "Add 1 to point gain.",
             cost: new Decimal(1)
+            },
+        12: {
+            title: "UPGRADE II",
+            description: "Multiply point gain by 2.",
+            cost: new Decimal(3)
             }
     }
 })
