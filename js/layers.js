@@ -60,7 +60,7 @@ addLayer("p", {
             description: "Current points divide $ requirement.",
             cost: new Decimal(15),
             effect() {
-                return player[this.layer].points.add(1).pow(0.1)
+                return player.points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
