@@ -45,10 +45,14 @@ addLayer("p", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
-        21: {
+        14: {
                 title: "UPGRADE IV",
-                description: "Does nothing, useless test",
-                cost: new Decimal(0)
+                description: "Current points multiply point gain.",
+                cost: new Decimal(75),
+                effect() {
+                    return player.points.add(1).pow(0.5)
+                },
+                effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             }
         }
 })
