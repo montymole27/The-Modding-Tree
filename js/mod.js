@@ -35,7 +35,6 @@ function getStartPoints(){
 function canGenPoints(){
 	return true
 }
-
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
