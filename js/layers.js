@@ -15,7 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
-
+        if (hasUpgrade('p', 15)) mult = mult.times(upgradeEffect('p', 15))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -23,7 +23,7 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "M", description: "M: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "m", description: "M: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
@@ -52,6 +52,15 @@ addLayer("p", {
             cost: new Decimal(10),
             effect() {
                 return player.points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
+            },
+        15: {
+            title: "UPGRADE V",
+            description: "Current points divide $ requirement.",
+            cost: new Decimal(15),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
