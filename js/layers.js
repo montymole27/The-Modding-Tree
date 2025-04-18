@@ -35,7 +35,7 @@ addLayer("p", {
             effect() {
                 let mult = new Decimal(0.1)
                 if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
-                return add(mult)
+                return mult
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
