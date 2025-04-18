@@ -22,7 +22,7 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "U", description: "U: Reset for upgrades", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "u", description: "U: Reset for upgrades", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
