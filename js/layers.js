@@ -38,8 +38,8 @@ addLayer("p", {
             },
         13: {
             title: "UPGRADE III",
-            description: "idk what this does",
-            cost: new Decimal(10),
+            description: "$ multiplies point gain.",
+            cost: new Decimal(25),
             effect() {
                 return player[this.layer].points.add(1).pow(0.5)
             },
