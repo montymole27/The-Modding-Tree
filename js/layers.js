@@ -31,7 +31,13 @@ addLayer("p", {
         11: {
             title: "UPGRADE I",
             description: "Add 0.1 to point gain.",
-            cost: new Decimal(1)
+            cost: new Decimal(1),
+            effect() {
+                let mult = new Decimal(0.1)
+                if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
+                return add(mult)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
         12: {
             title: "UPGRADE II",
@@ -71,6 +77,15 @@ addLayer("p", {
             cost: new Decimal(25),
             effect() {
                  return player.points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
+            },
+        22: {
+            title: "UPGRADE VI",
+            description: "Current $ multiplies UPGRADE I effect.",
+            cost: new Decimal(50),
+            effect() {
+                 return player[this.layer].points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
