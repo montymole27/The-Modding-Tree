@@ -45,7 +45,7 @@ addLayer("p", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
-        14: {
+        21: {
                 title: "UPGRADE IV",
                 description: "Does nothing, useless test",
                 cost: new Decimal(0)
