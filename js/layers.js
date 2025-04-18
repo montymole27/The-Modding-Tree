@@ -15,6 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -28,31 +29,31 @@ addLayer("p", {
     upgrades: {
         11: {
             title: "UPGRADE I",
-            description: "Add 1 to point gain.",
+            description: "Add 0.1 to point gain.",
             cost: new Decimal(1)
             },
         12: {
             title: "UPGRADE II",
-            description: "Multiply point gain by 2.",
-            cost: new Decimal(10)
+            description: "Multiply point gain by 1.25.",
+            cost: new Decimal(3)
             },
         13: {
             title: "UPGRADE III",
             description: "$ multiplies point gain.",
-            cost: new Decimal(25),
+            cost: new Decimal(10),
             effect() {
-                return player[this.layer].points.add(1).pow(0.5)
+                return player[this.layer].points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
         14: {
-                title: "UPGRADE IV",
-                description: "Current points multiply point gain.",
-                cost: new Decimal(75),
-                effect() {
-                    return player.points.add(1).pow(0.5)
-                },
-                effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
-            }
+            title: "UPGRADE IV",
+            description: "Current points multiply point gain.",
+            cost: new Decimal(75),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
+            },
         }
 })
