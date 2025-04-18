@@ -40,7 +40,7 @@ addLayer("p", {
         13: {
             title: "UPGRADE III",
             description: "$ multiplies point gain.",
-            cost: new Decimal(10),
+            cost: new Decimal(5),
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
             },
@@ -49,9 +49,9 @@ addLayer("p", {
         14: {
             title: "UPGRADE IV",
             description: "Current points multiply point gain.",
-            cost: new Decimal(75),
+            cost: new Decimal(10),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
