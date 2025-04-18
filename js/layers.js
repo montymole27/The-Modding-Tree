@@ -8,7 +8,7 @@ addLayer("p", {
     }},
     color: "#FFFFFF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "money", // Name of prestige currency
+    resource: "$", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -22,7 +22,7 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "u", description: "U: Reset for upgrades", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "M", description: "M: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
@@ -34,7 +34,16 @@ addLayer("p", {
         12: {
             title: "UPGRADE II",
             description: "Multiply point gain by 2.",
-            cost: new Decimal(3)
+            cost: new Decimal(10)
+            },
+        13: {
+            title: "UPGRADE III",
+            description: "idk what this does",
+            cost: new Decimal(10),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             }
     }
 })
