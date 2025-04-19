@@ -35,6 +35,7 @@ addLayer("p", {
             effect() {
                 let mult = new Decimal(0.1)
                 if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
+                if (hasUpgrade('p', 23)) mult = mult.times(upgradeEffect('p', 23))
                 return mult
             },
             effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
@@ -91,6 +92,15 @@ addLayer("p", {
             cost: new Decimal(50),
             effect() {
                  return player[this.layer].points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
+            },
+        22: {
+            title: "UPGRADE VIII",
+            description: "Points boost UPGRADE I",
+            cost: new Decimal(100),
+            effect() {
+                 return player.points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
