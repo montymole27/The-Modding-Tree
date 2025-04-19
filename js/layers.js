@@ -37,7 +37,7 @@ addLayer("p", {
                 if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
                 return mult
             },
-            effectDisplay() { return format("+"+upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
+            effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
             },
         12: {
             title: "UPGRADE II",
