@@ -24,29 +24,34 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "m", description: "M: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "m", description: "m: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
         11: {
             title: "UPGRADE I",
-            description: "Add 0.1 to point gain.",
+            description: "Add to points",
             cost: new Decimal(1),
             effect() {
                 let mult = new Decimal(0.1)
                 if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
                 return mult
             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
+            effectDisplay() { return format("+"+upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
             },
         12: {
             title: "UPGRADE II",
-            description: "Multiply point gain by 1.25.",
-            cost: new Decimal(3)
+            description: "Multiply points",
+            cost: new Decimal(3),
+            effect() {
+                let mult = new Decimal(1.25)
+                return mult
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
             },
         13: {
             title: "UPGRADE III",
-            description: "$ multiplies point gain.",
+            description: "$ boosts points",
             cost: new Decimal(5),
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
@@ -55,7 +60,7 @@ addLayer("p", {
             },
         14: {
             title: "UPGRADE IV",
-            description: "Current points multiply point gain.",
+            description: "Points boost points",
             cost: new Decimal(10),
             effect() {
                 return player.points.add(1).pow(0.1)
@@ -64,7 +69,7 @@ addLayer("p", {
             },
         15: {
             title: "UPGRADE V",
-            description: "Current $ divides $ requirement.",
+            description: "$ boosts $",
             cost: new Decimal(15),
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
@@ -73,7 +78,7 @@ addLayer("p", {
             },
         21: {
             title: "UPGRADE VI",
-            description: "Current points divide $ requirement.",
+            description: "Points boost $",
             cost: new Decimal(25),
             effect() {
                  return player.points.add(1).pow(0.1)
@@ -82,7 +87,7 @@ addLayer("p", {
             },
         22: {
             title: "UPGRADE VI",
-            description: "Current $ multiplies UPGRADE I effect.",
+            description: "$ boosts UPGRADE I",
             cost: new Decimal(50),
             effect() {
                  return player[this.layer].points.add(1).pow(0.1)
