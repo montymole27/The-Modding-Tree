@@ -86,7 +86,7 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effe
             },
         22: {
-            title: "UPGRADE VI",
+            title: "UPGRADE VII",
             description: "$ boosts UPGRADE I",
             cost: new Decimal(50),
             effect() {
