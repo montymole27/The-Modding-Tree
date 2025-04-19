@@ -99,7 +99,7 @@ addLayer("p", {
         23: {
             title: "UPGRADE VIII",
             description: "Points boost UPGRADE I",
-            cost: new Decimal(100),
+            cost: new Decimal(75),
             effect() {
                  return player.points.add(1).pow(0.1)
             },
@@ -108,7 +108,7 @@ addLayer("p", {
         24: {
             title: "UPGRADE IX",
             description: "UPGRADE VII and UPGRADE VIII boost UPGRADE II",
-            cost: new Decimal(200),
+            cost: new Decimal(150),
             effect() {
                 let mult = upgradeEffect(this.layer, 22)
                 mult = mult.times(upgradeEffect(this.layer, 23))
