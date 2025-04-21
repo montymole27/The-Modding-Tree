@@ -44,6 +44,11 @@ addLayer("p", {
             title: "UPGRADE II",
             description: "Multiply points",
             cost: new Decimal(3),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 11)) bool = true
+                return bool;
+            },
             effect() {
                 let mult = new Decimal(1.25)
                 if (hasUpgrade('p', 24)) mult = mult.times(upgradeEffect('p', 24))
