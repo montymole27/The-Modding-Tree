@@ -180,7 +180,7 @@ addLayer("r", {
         points: new Decimal(0),
     }},
     color: "#888888",
-    requires: new Decimal(250), // Requirement to unlock this layer
+    requires: new Decimal(100), // Requirement to unlock this layer
     resource: "resets", // Name of resource
     baseResource: "$", // What you're gaining it from
     baseAmount() { return player['p'].points }, // How to calculate baseResource
