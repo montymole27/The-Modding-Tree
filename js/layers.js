@@ -215,6 +215,11 @@ addLayer("r", {
             title: "RESET II",
             description: "Resets boost points.",
             cost: new Decimal(2),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('r', 11)) bool = true
+                return bool;
+            },
             effect() {
                 return player[this.layer].points.add(2).pow(0.1)
             },
