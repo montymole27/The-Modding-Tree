@@ -170,3 +170,34 @@ addLayer("p", {
             },
         }
 })
+
+addLayer("r", {
+    name: "Resets", // Display name
+    symbol: "R", // Symbol on the node
+    position: 0, // Horizontal position on the tree
+    startData() { return {
+        unlocked: false,
+        points: new Decimal(0),
+    }},
+    color: "#f54242",
+    requires: new Decimal(10), // Requirement to unlock this layer
+    resource: "boosters", // Name of resource
+    baseResource: "$", // What you're gaining it from
+    baseAmount() { return player['p'].points }, // How to calculate baseResource
+    type: "static", // "normal" or "static"
+    exponent: 0.5, // Prestige exponent
+
+    gainMult() { // Multiplier to gain
+        return new Decimal(1)
+    },
+    gainExp() { // Exponent to gain
+        return new Decimal(1)
+    },
+
+    row: 1, // Row in the tree (row 0 is the first)
+    branches: ["p"], // What layer this is connected to
+
+    layerShown() {
+        return hasUpgrade('p',25)
+    },
+})
