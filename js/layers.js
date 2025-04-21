@@ -1,6 +1,6 @@
-var testTree = [["p"],["r"]]
+var testTree = [["u"],["r"]]
 
-addLayer("p", {
+addLayer("u", {
     name: "Upgrades", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "$", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -17,8 +17,8 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
-        if (hasUpgrade('p', 15)) mult = mult.times(upgradeEffect('p', 15))
-        if (hasUpgrade('p', 21)) mult = mult.times(upgradeEffect('p', 21))
+        if (hasUpgrade('u', 15)) mult = mult.times(upgradeEffect('u', 15))
+        if (hasUpgrade('u', 21)) mult = mult.times(upgradeEffect('u', 21))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -26,7 +26,7 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "m", description: "m: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "u", description: "u: Reset for $", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
@@ -36,8 +36,8 @@ addLayer("p", {
             cost: new Decimal(1),
             effect() {
                 let mult = new Decimal(0.1)
-                if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
-                if (hasUpgrade('p', 23)) mult = mult.times(upgradeEffect('p', 23))
+                if (hasUpgrade('u', 22)) mult = mult.times(upgradeEffect('u', 22))
+                if (hasUpgrade('u', 23)) mult = mult.times(upgradeEffect('u', 23))
                 return mult
             },
             effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
@@ -48,12 +48,12 @@ addLayer("p", {
             cost: new Decimal(3),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 11)) bool = true
+                if (hasUpgrade('u', 11)) bool = true
                 return bool;
             },
             effect() {
                 let mult = new Decimal(1.25)
-                if (hasUpgrade('p', 24)) mult = mult.times(upgradeEffect('p', 24))
+                if (hasUpgrade('u', 24)) mult = mult.times(upgradeEffect('u', 24))
                 return mult
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
@@ -64,7 +64,7 @@ addLayer("p", {
             cost: new Decimal(5),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 12)) bool = true
+                if (hasUpgrade('u', 12)) bool = true
                 return bool;
             },
             effect() {
@@ -78,7 +78,7 @@ addLayer("p", {
             cost: new Decimal(10),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 13)) bool = true
+                if (hasUpgrade('u', 13)) bool = true
                 return bool;
             },
             effect() {
@@ -92,7 +92,7 @@ addLayer("p", {
             cost: new Decimal(15),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 14)) bool = true
+                if (hasUpgrade('u', 14)) bool = true
                 return bool;
             },
             effect() {
@@ -106,7 +106,7 @@ addLayer("p", {
             cost: new Decimal(25),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 15)) bool = true
+                if (hasUpgrade('u', 15)) bool = true
                 return bool;
             },
             effect() {
@@ -120,7 +120,7 @@ addLayer("p", {
             cost: new Decimal(50),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p',21)) bool = true
+                if (hasUpgrade('u',21)) bool = true
                 return bool;
             },
             effect() {
@@ -134,7 +134,7 @@ addLayer("p", {
             cost: new Decimal(75),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 22)) bool = true
+                if (hasUpgrade('u', 22)) bool = true
                 return bool;
             },
             effect() {
@@ -148,7 +148,7 @@ addLayer("p", {
             cost: new Decimal(150),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 23)) bool = true
+                if (hasUpgrade('u', 23)) bool = true
                 return bool;
             },
             effect() {
@@ -164,7 +164,7 @@ addLayer("p", {
             cost: new Decimal(250),
             unlocked() {
                 let bool = false;
-                if (hasUpgrade('p', 24)) bool = true
+                if (hasUpgrade('u', 24)) bool = true
                 return bool;
             },
             },
