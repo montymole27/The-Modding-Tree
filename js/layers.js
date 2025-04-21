@@ -183,7 +183,7 @@ addLayer("r", {
     requires: new Decimal(250), // Requirement to unlock this layer
     resource: "resets", // Name of resource
     baseResource: "$", // What you're gaining it from
-    baseAmount() { return player['p'].points }, // How to calculate baseResource
+    baseAmount() { return player['u'].points }, // How to calculate baseResource
     type: "static", // "normal" or "static"
     exponent: 0.5, // Prestige exponent
 
@@ -195,10 +195,10 @@ addLayer("r", {
     },
 
     row: 1, // Row in the tree (row 0 is the first)
-    branches: ["p"], // What layer this is connected to
+    branches: ["u"], // What layer this is connected to
 
     layerShown() {
-        return player.r.unlocked || hasUpgrade('p',25)
+        return player.r.unlocked || hasUpgrade('u',25)
     },
     upgrades: {
         11: {
