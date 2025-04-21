@@ -60,6 +60,11 @@ addLayer("p", {
             title: "UPGRADE III",
             description: "$ boosts points",
             cost: new Decimal(5),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 12)) bool = true
+                return bool;
+            },
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
             },
@@ -69,6 +74,11 @@ addLayer("p", {
             title: "UPGRADE IV",
             description: "Points boost points",
             cost: new Decimal(10),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 13)) bool = true
+                return bool;
+            },
             effect() {
                 return player.points.add(1).pow(0.1)
             },
@@ -78,6 +88,11 @@ addLayer("p", {
             title: "UPGRADE V",
             description: "$ boosts $",
             cost: new Decimal(15),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 14)) bool = true
+                return bool;
+            },
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
             },
@@ -87,6 +102,11 @@ addLayer("p", {
             title: "UPGRADE VI",
             description: "Points boost $",
             cost: new Decimal(25),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 15)) bool = true
+                return bool;
+            },
             effect() {
                  return player.points.add(1).pow(0.1)
             },
@@ -96,6 +116,11 @@ addLayer("p", {
             title: "UPGRADE VII",
             description: "$ boosts UPGRADE I",
             cost: new Decimal(50),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p',21)) bool = true
+                return bool;
+            },
             effect() {
                  return player[this.layer].points.add(1).pow(0.1)
             },
@@ -105,6 +130,11 @@ addLayer("p", {
             title: "UPGRADE VIII",
             description: "Points boost UPGRADE I",
             cost: new Decimal(100),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 22)) bool = true
+                return bool;
+            },
             effect() {
                  return player.points.add(1).pow(0.1)
             },
@@ -114,6 +144,11 @@ addLayer("p", {
             title: "UPGRADE IX",
             description: "UPGRADE VII and UPGRADE VIII boost UPGRADE II",
             cost: new Decimal(200),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('p', 23)) bool = true
+                return bool;
+            },
             effect() {
                 let mult = upgradeEffect(this.layer, 22)
                 mult = mult.times(upgradeEffect(this.layer, 23))
