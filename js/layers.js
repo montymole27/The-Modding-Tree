@@ -131,7 +131,7 @@ addLayer("p", {
         23: {
             title: "UPGRADE VIII",
             description: "Points boost UPGRADE I",
-            cost: new Decimal(100),
+            cost: new Decimal(75),
             unlocked() {
                 let bool = false;
                 if (hasUpgrade('p', 22)) bool = true
@@ -145,7 +145,7 @@ addLayer("p", {
         24: {
             title: "UPGRADE IX",
             description: "UPGRADE VII and UPGRADE VIII boost UPGRADE II",
-            cost: new Decimal(200),
+            cost: new Decimal(150),
             unlocked() {
                 let bool = false;
                 if (hasUpgrade('p', 23)) bool = true
@@ -161,7 +161,7 @@ addLayer("p", {
         25: {
             title: "UPGRADE X",
             description: "Unlock RESETS",
-            cost: new Decimal(500),
+            cost: new Decimal(250),
             unlocked() {
                 let bool = false;
                 if (hasUpgrade('p', 24)) bool = true
@@ -180,7 +180,7 @@ addLayer("r", {
         points: new Decimal(0),
     }},
     color: "#787878",
-    requires: new Decimal(1000), // Requirement to unlock this layer
+    requires: new Decimal(250), // Requirement to unlock this layer
     resource: "resets", // Name of resource
     baseResource: "$", // What you're gaining it from
     baseAmount() { return player['p'].points }, // How to calculate baseResource
