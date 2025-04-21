@@ -179,7 +179,7 @@ addLayer("r", {
         unlocked: false,
         points: new Decimal(0),
     }},
-    color: "#f54242",
+    color: "#787878",
     requires: new Decimal(1000), // Requirement to unlock this layer
     resource: "resets", // Name of resource
     baseResource: "$", // What you're gaining it from
