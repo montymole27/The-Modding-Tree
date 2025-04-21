@@ -210,6 +210,15 @@ addLayer("r", {
                 return mult
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        },
+        12: {
+            title: "RESET II",
+            description: "Resets boost points.",
+            cost: new Decimal(2),
+            effect() {
+                return player[this.layer].points.add(2).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         }
     }
 })
