@@ -181,11 +181,11 @@ addLayer("r", {
     }},
     color: "#888888",
     requires: new Decimal(250), // Requirement to unlock this layer
-    resource: "resets", // Name of resource
+    resource: "R", // Name of resource
     baseResource: "$", // What you're gaining it from
     baseAmount() { return player['u'].points }, // How to calculate baseResource
     type: "static", // "normal" or "static"
-    exponent: 0.5, // Prestige exponent
+    exponent: 1, // Prestige exponent
 
     gainMult() { // Multiplier to gain
         return new Decimal(1)
