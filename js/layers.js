@@ -214,7 +214,7 @@ addLayer("r", {
         },
         12: {
             title: "RESET II",
-            description: "R boost points.",
+            description: "R boosts points.",
             cost: new Decimal(2),
             unlocked() {
                 let bool = false;
@@ -236,7 +236,7 @@ addLayer("r", {
                 return bool;
             },
             effect() {
-                return player[this.points].points.add(2).pow(0.1)
+                return player[this.layer].points.add(2).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         }
