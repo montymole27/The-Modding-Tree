@@ -201,6 +201,9 @@ addLayer("r", {
     layerShown() {
         return player.r.unlocked || hasUpgrade('u', 25)
     },
+    hotkeys: [
+        {key: "r", description: "r: Reset for R", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
     upgrades: {
         11: {
             title: "RESET I",
