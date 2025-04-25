@@ -19,6 +19,7 @@ addLayer("u", {
         let mult = new Decimal(1)
         if (hasUpgrade('u', 15)) mult = mult.times(upgradeEffect('u', 15))
         if (hasUpgrade('u', 21)) mult = mult.times(upgradeEffect('u', 21))
+        if (hasUpgrade('r', 13)) mult = mult.times(upgradeEffect('r', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -38,7 +39,6 @@ addLayer("u", {
                 let mult = new Decimal(0.1)
                 if (hasUpgrade('u', 22)) mult = mult.times(upgradeEffect('u', 22))
                 if (hasUpgrade('u', 23)) mult = mult.times(upgradeEffect('u', 23))
-                if (hasUpgrade('r', 13)) mult = mult.times(upgradeEffect('r', 23))
                 return mult
             },
             effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
@@ -228,7 +228,7 @@ addLayer("r", {
         },
         13: {
             title: "RESET III",
-            description: "R boost $.",
+            description: "R boosts $.",
             cost: new Decimal(3),
             unlocked() {
                 let bool = false;
