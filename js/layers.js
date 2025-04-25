@@ -229,7 +229,7 @@ addLayer("r", {
         13: {
             title: "RESET III",
             description: "R boost $.",
-            cost: new Decimal(2),
+            cost: new Decimal(3),
             unlocked() {
                 let bool = false;
                 if (hasUpgrade('r', 12)) bool = true
