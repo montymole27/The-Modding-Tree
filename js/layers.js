@@ -38,6 +38,7 @@ addLayer("u", {
                 let mult = new Decimal(0.1)
                 if (hasUpgrade('u', 22)) mult = mult.times(upgradeEffect('u', 22))
                 if (hasUpgrade('u', 23)) mult = mult.times(upgradeEffect('u', 23))
+                if (hasUpgrade('r', 13)) mult = mult.times(upgradeEffect('r', 23))
                 return mult
             },
             effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id))}, // Add formatting to the effe
@@ -213,7 +214,7 @@ addLayer("r", {
         },
         12: {
             title: "RESET II",
-            description: "Resets boost points.",
+            description: "R boost points.",
             cost: new Decimal(2),
             unlocked() {
                 let bool = false;
@@ -222,6 +223,20 @@ addLayer("r", {
             },
             effect() {
                 return player[this.layer].points.add(2).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        },
+        13: {
+            title: "RESET III",
+            description: "R boost $.",
+            cost: new Decimal(2),
+            unlocked() {
+                let bool = false;
+                if (hasUpgrade('r', 12)) bool = true
+                return bool;
+            },
+            effect() {
+                return player[this.points].points.add(2).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         }
