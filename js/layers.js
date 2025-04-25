@@ -199,7 +199,7 @@ addLayer("r", {
     branches: ["u"], // What layer this is connected to
 
     layerShown() {
-        return player.r.unlocked || hasUpgrade('u',25)
+        return player.r.unlocked || hasUpgrade('u', 25)
     },
     upgrades: {
         11: {
